@@ -1,5 +1,5 @@
 //
-//  SceneDelegate.h
+//  LFAimatoinOneController.h
 //  LFAnimation
 //
 //  Created by 王林芳 on 2019/12/12.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
+NS_ASSUME_NONNULL_BEGIN
 
-@property (strong, nonatomic) UIWindow * window;
+@interface LFAimatoinOneController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END

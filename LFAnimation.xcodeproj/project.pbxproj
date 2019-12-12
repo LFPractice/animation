@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5374C38B23A1E7EF007CC20D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5374C38A23A1E7EF007CC20D /* AppDelegate.m */; };
-		5374C38E23A1E7EF007CC20D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5374C38D23A1E7EF007CC20D /* SceneDelegate.m */; };
 		5374C39123A1E7EF007CC20D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5374C39023A1E7EF007CC20D /* ViewController.m */; };
 		5374C39423A1E7EF007CC20D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5374C39223A1E7EF007CC20D /* Main.storyboard */; };
 		5374C39623A1E7F1007CC20D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5374C39523A1E7F1007CC20D /* Assets.xcassets */; };
@@ -16,6 +15,8 @@
 		5374C39C23A1E7F1007CC20D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5374C39B23A1E7F1007CC20D /* main.m */; };
 		5374C3A623A1E7F1007CC20D /* LFAnimationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5374C3A523A1E7F1007CC20D /* LFAnimationTests.m */; };
 		5374C3B123A1E7F2007CC20D /* LFAnimationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5374C3B023A1E7F2007CC20D /* LFAnimationUITests.m */; };
+		5374C3C023A1EA0B007CC20D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5374C3BF23A1EA0B007CC20D /* MainViewController.m */; };
+		53E5796023A22BB700F8233F /* LFAimatoinOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5795F23A22BB700F8233F /* LFAimatoinOneController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +40,6 @@
 		5374C38623A1E7EF007CC20D /* LFAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LFAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5374C38923A1E7EF007CC20D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5374C38A23A1E7EF007CC20D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5374C38C23A1E7EF007CC20D /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		5374C38D23A1E7EF007CC20D /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		5374C38F23A1E7EF007CC20D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5374C39023A1E7EF007CC20D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5374C39323A1E7EF007CC20D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +53,10 @@
 		5374C3AC23A1E7F2007CC20D /* LFAnimationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LFAnimationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5374C3B023A1E7F2007CC20D /* LFAnimationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFAnimationUITests.m; sourceTree = "<group>"; };
 		5374C3B223A1E7F2007CC20D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5374C3BE23A1EA0B007CC20D /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		5374C3BF23A1EA0B007CC20D /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		53E5795E23A22BB700F8233F /* LFAimatoinOneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFAimatoinOneController.h; sourceTree = "<group>"; };
+		53E5795F23A22BB700F8233F /* LFAimatoinOneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFAimatoinOneController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,10 +109,12 @@
 			children = (
 				5374C38923A1E7EF007CC20D /* AppDelegate.h */,
 				5374C38A23A1E7EF007CC20D /* AppDelegate.m */,
-				5374C38C23A1E7EF007CC20D /* SceneDelegate.h */,
-				5374C38D23A1E7EF007CC20D /* SceneDelegate.m */,
 				5374C38F23A1E7EF007CC20D /* ViewController.h */,
 				5374C39023A1E7EF007CC20D /* ViewController.m */,
+				5374C3BE23A1EA0B007CC20D /* MainViewController.h */,
+				5374C3BF23A1EA0B007CC20D /* MainViewController.m */,
+				53E5795E23A22BB700F8233F /* LFAimatoinOneController.h */,
+				53E5795F23A22BB700F8233F /* LFAimatoinOneController.m */,
 				5374C39223A1E7EF007CC20D /* Main.storyboard */,
 				5374C39523A1E7F1007CC20D /* Assets.xcassets */,
 				5374C39723A1E7F1007CC20D /* LaunchScreen.storyboard */,
@@ -268,9 +273,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5374C39123A1E7EF007CC20D /* ViewController.m in Sources */,
+				53E5796023A22BB700F8233F /* LFAimatoinOneController.m in Sources */,
 				5374C38B23A1E7EF007CC20D /* AppDelegate.m in Sources */,
 				5374C39C23A1E7F1007CC20D /* main.m in Sources */,
-				5374C38E23A1E7EF007CC20D /* SceneDelegate.m in Sources */,
+				5374C3C023A1EA0B007CC20D /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
