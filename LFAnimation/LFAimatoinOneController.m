@@ -7,12 +7,14 @@
 //
 
 #import "LFAimatoinOneController.h"
-
-@interface LFAimatoinOneController ()
+#import "LFBottomTab.h"
+@interface LFAimatoinOneController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIButton *button1;
 @property (nonatomic, strong) UIButton *button2;
 @property (nonatomic, strong) UIButton *button3;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) LFBottomTab *bottomTab;
 @end
 
 @implementation LFAimatoinOneController
@@ -26,99 +28,74 @@
 
 - (void)createUI {
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self.view addSubview:self.imageView];
-    [self.view addSubview:self.button1];
-    [self.view addSubview:self.button2];
-    [self.view addSubview:self.button3];
     
-    self.button3.frame = CGRectMake(10, 220, 100, 30);
-    self.button1.frame = CGRectMake(10 + 10 + 100, 220, 100, 30);
-    self.button2.frame = CGRectMake(10 + 10 + 100 + 100, 220, 100, 30);
+    [self.view addSubview:self.tableView];
+    [self.view addSubview:self.bottomTab];
 }
 
-- (UIImageView *)imageView {
-    if (!_imageView) {
-        _imageView = [[UIImageView alloc]init];
-        _imageView.frame = CGRectMake(100, 100, 100, 100);
-        _imageView.image = [UIImage imageNamed:@"img_normal"];
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 100) style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
     }
-    return _imageView;
+    return _tableView;
 }
 
-- (UIButton *)button1 {
-    if (!_button1) {
-        _button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_button1 setTitle:@"状态一" forState:UIControlStateNormal];
-        _button1.tag = 100;
-        [_button1 addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [_button1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_button1 setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
+- (LFBottomTab *)bottomTab {
+    if (!_bottomTab) {
+        _bottomTab = [[LFBottomTab alloc]initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - 100) / 2, [UIScreen mainScreen].bounds.size.height - 100, 100, 100)];
+        _bottomTab.bottomTabStatus = BottomTabStatusSelected;
+        
+        __weak typeof(self)weakSelf = self;
+        _bottomTab.scrollToTop = ^{
+            CGPoint point = weakSelf.tableView.contentOffset;
+            point.y = -60;
+            [weakSelf.tableView setContentOffset:point];
+        };
     }
-    return _button1;
+    return _bottomTab;
 }
 
-- (UIButton *)button2 {
-    if (!_button2) {
-        _button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_button2 setTitle:@"状态二" forState:UIControlStateNormal];
-        [_button2 setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
-        _button2.tag = 101;
-        [_button2 addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [_button2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    }
-    return _button2;
+#pragma mark ------ UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
-- (UIButton *)button3 {
-    if (!_button3) {
-        _button3 = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_button3 setTitle:@"默认状态" forState:UIControlStateNormal];
-        _button3.tag = 102;
-        [_button3 addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [_button3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_button3 setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
-        _button3.selected = YES;
-    }
-    return _button3;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
 }
 
-- (void)btnClick:(UIButton *)sender {
-    if (sender.selected) {
-        return;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellName = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
     }
-    NSArray *buttonArray = @[self.button1,self.button2,self.button3];
-    for (UIButton *btn in buttonArray) {
-        btn.selected = NO;
-    }
-    sender.selected = YES;
     
-    CATransition *transiton = [CATransition animation];
-    transiton.type = @"push";
-    transiton.subtype = @"fromTop";
-    transiton.duration = 0.1;
-    switch (sender.tag) {
-        case 100:
-        {
-            
-            self.imageView.image = [UIImage imageNamed:@"img_selected1"];
-            [self.imageView.layer addAnimation:transiton forKey:nil];
-            break;
-        }
-            
-        case 101:
-        {
-            self.imageView.image = [UIImage imageNamed:@"img_selected2"];
-            [self.imageView.layer addAnimation:transiton forKey:nil];
-            break;
-        }
-        case 102:
-        {
-            self.imageView.image = [UIImage imageNamed:@"img_normal"];
-            break;
-        }
-            
-        default:
-            break;
+    cell.textLabel.text = [NSString stringWithFormat:@"cell:%@",@(indexPath.row)];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat height = scrollView.contentOffset.y;
+    
+    if (height > 100) {
+        self.bottomTab.bottomTabStatus = BottomTabStatusShowTop;
+    } else {
+        self.bottomTab.bottomTabStatus = BottomTabStatusSelected;
     }
+}
+
+#pragma mark ------ UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 @end

@@ -17,6 +17,7 @@
 		5374C3B123A1E7F2007CC20D /* LFAnimationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5374C3B023A1E7F2007CC20D /* LFAnimationUITests.m */; };
 		5374C3C023A1EA0B007CC20D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5374C3BF23A1EA0B007CC20D /* MainViewController.m */; };
 		53E5796023A22BB700F8233F /* LFAimatoinOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E5795F23A22BB700F8233F /* LFAimatoinOneController.m */; };
+		53F5E64123A783FD0050AE9D /* LFBottomTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 53F5E64023A783FD0050AE9D /* LFBottomTab.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		5374C3BF23A1EA0B007CC20D /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		53E5795E23A22BB700F8233F /* LFAimatoinOneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFAimatoinOneController.h; sourceTree = "<group>"; };
 		53E5795F23A22BB700F8233F /* LFAimatoinOneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFAimatoinOneController.m; sourceTree = "<group>"; };
+		53F5E63F23A783FD0050AE9D /* LFBottomTab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFBottomTab.h; sourceTree = "<group>"; };
+		53F5E64023A783FD0050AE9D /* LFBottomTab.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFBottomTab.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				5374C3BF23A1EA0B007CC20D /* MainViewController.m */,
 				53E5795E23A22BB700F8233F /* LFAimatoinOneController.h */,
 				53E5795F23A22BB700F8233F /* LFAimatoinOneController.m */,
+				53F5E63F23A783FD0050AE9D /* LFBottomTab.h */,
+				53F5E64023A783FD0050AE9D /* LFBottomTab.m */,
 				5374C39223A1E7EF007CC20D /* Main.storyboard */,
 				5374C39523A1E7F1007CC20D /* Assets.xcassets */,
 				5374C39723A1E7F1007CC20D /* LaunchScreen.storyboard */,
@@ -272,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53F5E64123A783FD0050AE9D /* LFBottomTab.m in Sources */,
 				5374C39123A1E7EF007CC20D /* ViewController.m in Sources */,
 				53E5796023A22BB700F8233F /* LFAimatoinOneController.m in Sources */,
 				5374C38B23A1E7EF007CC20D /* AppDelegate.m in Sources */,
