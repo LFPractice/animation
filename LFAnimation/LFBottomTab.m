@@ -71,7 +71,7 @@
 - (void)tapClick {
     if (self.bottomTabStatus == BottomTabStatusShowTop) {
         if (self.scrollToTop) {
-            self.bottomTabStatus = BottomTabStatusSelected;
+//            self.bottomTabStatus = BottomTabStatusSelected;
             self.scrollToTop();
         }
     }

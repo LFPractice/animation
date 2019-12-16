@@ -52,7 +52,7 @@
         _bottomTab.scrollToTop = ^{
             CGPoint point = weakSelf.tableView.contentOffset;
             point.y = -60;
-            [weakSelf.tableView setContentOffset:point];
+            [weakSelf.tableView setContentOffset:point animated:YES];
         };
     }
     return _bottomTab;
