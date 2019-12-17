@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, BottomTabStatus) {
     BottomTabStatusSelected = 2,
 };
 @interface LFBottomTab : UIView
-@property (nonatomic, copy) void(^scrollToTop)();
+@property (nonatomic, copy) void(^scrollToTop)(void);
 @property (nonatomic, assign) BottomTabStatus bottomTabStatus;
 @end
 

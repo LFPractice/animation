@@ -10,6 +10,7 @@
 @interface LFBottomTab()
 
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIImageView *imageView2;
 @end
 @implementation LFBottomTab
 
@@ -33,7 +34,7 @@
     CATransition *transiton = [CATransition animation];
     transiton.type = @"push";
     transiton.subtype = @"fromTop";
-    transiton.duration = 0.2;
+    transiton.duration = 0.1;
     
     switch (bottomTabStatus) {
         case BottomTabStatusNormal:
@@ -49,7 +50,6 @@
         }
         case BottomTabStatusSelected:
         {
-            transiton.subtype = @"fromBottom";
             self.imageView.image = [UIImage imageNamed:@"img_selected2"];
             [self.imageView.layer addAnimation:transiton forKey:nil];
             break;
@@ -61,7 +61,10 @@
 }
 
 - (void)createUI {
+    [self addSubview:self.imageView2];
     [self addSubview:self.imageView];
+    
+    self.clipsToBounds = YES;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapClick)];
     
@@ -71,7 +74,6 @@
 - (void)tapClick {
     if (self.bottomTabStatus == BottomTabStatusShowTop) {
         if (self.scrollToTop) {
-//            self.bottomTabStatus = BottomTabStatusSelected;
             self.scrollToTop();
         }
     }
@@ -84,5 +86,14 @@
         _imageView.image = [UIImage imageNamed:@"img_normal"];
     }
     return _imageView;
+}
+
+- (UIImageView *)imageView2 {
+    if (!_imageView2) {
+        _imageView2 = [[UIImageView alloc]init];
+        _imageView2.frame = CGRectMake(0, 0, 100, 100);
+        _imageView2.image = [UIImage imageNamed:@"img_normal"];
+    }
+    return _imageView2;
 }
 @end

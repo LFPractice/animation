@@ -31,6 +31,7 @@
     
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.bottomTab];
+    
 }
 
 
